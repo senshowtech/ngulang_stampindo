@@ -1,0 +1,1 @@
+# ngulang_stampindo
