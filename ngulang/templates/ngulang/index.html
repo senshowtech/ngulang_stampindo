@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>All</h1>
+    <ul>
+      {% for food in foods %}
+      <li>{{ food.name }}</li>
+      {% endfor %}
+    </ul>
+    <h1>Filter</h1>
+    <ul>
+      {% for food_filter in food_filters %}
+      <li>{{ food_filter.name }}</li>
+      {% endfor %}
+    </ul>
+    <h1>Gets</h1>
+    <ul>
+      <li>{{food_gets.name}}</li>
+    </ul>
+    <h1>First</h1>
+    <ul>
+      <li>{{food_firsts.name}}</li>
+    </ul>
+    <h1>Aggregats</h1>
+    <ul>
+      <li>{{aggregats.name__count}}</li>
+    </ul>
+    <h1>Annotates</h1>
+    {% for annotate in annotates %}
+    <li>{{ annotate.name }}</li>
+    {% endfor %}
+    <h1>Select Related</h1>
+    {% for select in selects %}
+    <li>{{ select.protein }}</li>
+    {% endfor %}
+    <h1>Select Related call another table</h1>
+    <ul>
+      <li>{{select_calls}}</li>
+    </ul>
+    <h1>Prefetchs Related</h1>
+    {% for prefetch in prefetchs %}
+    <li>{{ prefetch.title }}</li>
+    {% for author in prefetch.authors.all %}
+    <li>{{author.first_name}}</li>
+    {% endfor %} {% endfor %}
+  </body>
+</html>
